@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crescent Theatre - Ticket Selection</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="top-bar">
+    <h1>Crescent Theatre</h1>
+    <p class="subtitle">Choose your seats. Click a seat to see its details, then press <strong>Add to cart</strong>.</p>
+  </header>
+
+  <main class="layout">
+
+    <section class="map-area" aria-label="Venue map">
+
+      <div class="controls">
+        <button type="button" id="zoomInBtn" title="Zoom in">+ Zoom In</button>
+        <button type="button" id="zoomOutBtn" title="Zoom out">- Zoom Out</button>
+        <button type="button" id="upBtn" title="Move up">↑ Up</button>
+        <button type="button" id="downBtn" title="Move down">↓ Down</button>
+        <button type="button" id="leftBtn" title="Move left">← Left</button>
+        <button type="button" id="rightBtn" title="Move right">→ Right</button>
+        <button type="button" id="resetBtn" title="Reset and center the view">⟲ Reset View</button>
+        <span class="zoom-label">Zoom: <span id="zoomValue">100%</span></span>
+      </div>
+
+      <div class="viewport" id="viewport">
+        <div class="map" id="map">
+          <div class="stage">STAGE</div>
+          <div id="sections"></div>
+          <div class="entrances">
+            <span class="entrance">Entrance A</span>
+            <span class="entrance">Entrance B</span>
+          </div>
+        </div>
+      </div>
+
+      <p class="hint">Tip: you can also use the mouse wheel to zoom and drag the map to move it.</p>
+
+      <div class="legend" id="legend">
+        <span class="legend-item"><span class="dot inspected-demo"></span> Selected (inspecting)</span>
+        <span class="legend-item"><span class="dot in-cart-demo"></span> In cart</span>
+        <span class="legend-item"><span class="dot unavailable-demo"></span> Unavailable</span>
+      </div>
+    </section>
+
+    <aside class="side">
+
+      <section class="panel" aria-live="polite">
+        <h2>Seat details</h2>
+        <p id="detailsEmpty" class="muted">No seat selected. Click a seat on the map.</p>
+
+        <div id="detailsBox" class="hidden">
+          <table class="details-table">
+            <tr><th>Section</th><td id="dSection"></td></tr>
+            <tr><th>Row</th><td id="dRow"></td></tr>
+            <tr><th>Seat</th><td id="dSeat"></td></tr>
+            <tr><th>Price</th><td id="dPrice"></td></tr>
+            <tr><th>Status</th><td id="dStatus"></td></tr>
+          </table>
+          <button type="button" id="addBtn" class="add-btn">ADD TO CART</button>
+        </div>
+
+        <p id="message" class="message"></p>
+      </section>
+
+      <section class="panel">
+        <h2>Your cart (<span id="cartCount">0</span>)</h2>
+        <p id="cartEmpty" class="muted">Your cart is empty.</p>
+        <ul id="cartList" class="cart-list"></ul>
+        <div class="total-row">
+          <span>Total</span>
+          <strong id="cartTotal">$0</strong>
+        </div>
+        <button type="button" id="clearBtn" class="clear-btn">Clear cart</button>
+      </section>
+
+    </aside>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
